@@ -18,10 +18,10 @@ def start_server(
     n_threads: int = 4,
     n_ctx: int = 2048
 ):
-    print(f"[🔧] Starting Server at http://{host}:{port}")
+    print(f" Starting Server at http://{host}:{port}")
     
     # Load Qwen model
-    print("[📦] Loading Qwen model...")
+    print(" Loading Qwen model...")
     qwen_llm = Llama(
         model_path="./models/qwen2.5/qwen2.5-0.5b-instruct-q4_k_m.gguf",
         n_threads=n_threads,
@@ -29,7 +29,7 @@ def start_server(
     )
 
     # Load Nomic embedding model
-    print("[📦] Loading Nomic embedding model...")
+    # print( Loading Nomic embedding model...")
     nomic_embedder = Llama(
         model_path="./models/nomic-ai/nomic-embed-text-v1.5.f16.gguf",
         embedding=True,
@@ -37,10 +37,10 @@ def start_server(
         n_batch=8
     )
 
-    # Optional: Load MiniLM for comparison (not used in routes here)
-    print("[📦] Loading local MiniLM embedding model...")
-    local_model_path = "./models/minilm"
-    minilm_embedder = SentenceTransformer(local_model_path)
+    # # Optional: Load MiniLM for comparison (not used in routes here)
+    # print(" Loading local MiniLM embedding model...")
+    # local_model_path = "./models/minilm"
+    # minilm_embedder = SentenceTransformer(local_model_path)
     
     app = FastAPI(title="LLM and Embedding API")
     
@@ -66,9 +66,6 @@ def start_server(
         except Exception as e:
             raise HTTPException(status_code=500, detail=str(e))
 
-    print("[✅] Models loaded successfully")
-    print("[🚀] Server ready to handle requests")
-    
     import uvicorn
     uvicorn.run(app, host=host, port=port)
 
