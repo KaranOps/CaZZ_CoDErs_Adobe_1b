@@ -1,2 +1,2 @@
-project-v2/models/qwen2.5/* filter=lfs diff=lfs merge=lfs -text
-project-v2/models/nomic-ai/* filter=lfs diff=lfs merge=lfs -text
+models/qwen2.5/* filter=lfs diff=lfs merge=lfs -text
+models/nomic-ai/* filter=lfs diff=lfs merge=lfs -text

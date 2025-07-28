@@ -56,8 +56,9 @@ This project is designed to process and extract information from PDF documents r
 - **Output Files**: 
   - `output.json`: Stores the final output data in JSON format.
 
-## Running the Application
-To run the application, execute the `run.py` script. Ensure that all dependencies are installed and the necessary input files are available in the specified directories.
+## Running the Application 
+the command:- 
+docker-compose up
 
 ## License
 This project is licensed under the MIT License.
