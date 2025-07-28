@@ -5,19 +5,30 @@ This project is designed to process and extract information from PDF documents r
 
 ## Project Structure
 ```
-project-v2
-├── src
+.
+├── src/
 │   ├── extractor.py
 │   ├── embedder.py
 │   ├── faiss_indexer.py
 │   ├── llm_handler.py
-│   ├── query_generator.py
-│   ├── refiner.py
 │   ├── pipeline.py
+│   ├── refiner.py
 │   └── utils.py
-├── models
-│   └── Qwen2.5-0.5B-Instruct-Q4_K_M.gguf
-├── documents
+├── models/
+│   ├── qwen2.5/
+│   │   └── qwen2.5-0.5b-instruct-q4_k_m.gguf
+│   └── nomic-ai/
+│       └── nomic-embed-text-v1.5.f16.gguf
+├── input/
+│   ├── Collection_1/
+│   ├── Collection_2/
+│   └── Collection_3/
+├── run.py
+├── start_llm_server.py
+├── startup.sh
+├── Dockerfile
+├── docker-compose.yml
+└── requirements.txt
 │   ├── South of France - Cities.pdf
 │   └── South of France - Cuisine.pdf
 ├── run.py

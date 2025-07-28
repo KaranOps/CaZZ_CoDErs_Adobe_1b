@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  llm-server:
+    build: .
+    command: ["python", "start_llm_server.py"]
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/docs"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  pipeline:
+    build: .
+    command: ["python", "run.py"]
+    volumes:
+      - ./input:/app/input
+      - ./output:/app/output
+    depends_on:
+      llm-server:
+        condition: service_healthy
+    environment:
+      - LLM_API_URL=http://llm-server:8000/v1/completions/qwen
