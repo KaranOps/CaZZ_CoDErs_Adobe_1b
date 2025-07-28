@@ -1,0 +1,11 @@
+docling
+faiss-cpu
+sentence-transformers
+transformers
+torch 
+requests
+numpy
+llama-cpp-python[server] 
+uvicorn
+requests
+nomic
